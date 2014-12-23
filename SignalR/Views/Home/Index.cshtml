@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>SignalR</h1>
+    <p class="lead">SignalR is a new library for ASP.NET developers that makes it incredibly simple to add real-time web functionality to your applications.</p>
+    <p><a href="http://signalr.net/" class="btn btn-primary btn-large" target="_blank">Learn more &raquo;</a></p>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.signalR-2.0.3.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        // proxy class
+        var simple = $.connection.simpleHub;
+
+        simple.client.introduce = function(serverResponse) {
+            alert(serverResponse);
+        };
+        
+        // Create the connection 
+       // $.connection.hub.start();
+        
+        // Call back function upon successful connection 
+        $.connection.hub.start().done(function() {
+            simple.server.hello();
+        });
+    </script>
+}

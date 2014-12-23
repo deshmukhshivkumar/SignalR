@@ -1,0 +1,41 @@
+Why SignalR
+
+Web Sockets 
+-TCP Socket connection between client and server 
+-not all browser support web sockets
+-serializing and deserializing data 
+
+SignalR Set up 
+
+1) Download Package for Signal R
+2) Install-Package Microsoft.Owin -Version 2.1.0	
+3) Install-Package Microsoft.Owin.Security -Version 2.1.0
+
+
+Javascript proxy file 
+http://localhost:1218/signalr/hubs
+
+
+Technology 
+
+1) HTML 5 WebSockets 
+	most modern browsers support
+2) Server sent events 
+3) Forever frames - old method
+4) Ajax Long Polling 
+  send ajax req once get resoponse 
+
+
+Establising connection with SignalR hubs
+
+1) Add SignalR Hub
+	- PersistConnection
+		Lower level API
+2) Add SignalR js references to your page 
+	@section is for defining a content are override from a shared view. Basically, it is a way for you to adjust your shared view (similar to a Master Page in Web Forms).
+
+3) Auto generated proxy file 
+ 	add it ~/signalr/hubs
+
+4) app.MapSignalR in Startup.cs
+
